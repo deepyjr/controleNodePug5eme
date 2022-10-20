@@ -1,0 +1,30 @@
+extends layout.pug
+
+block content
+  <h1>Chercher un restaurant par quartier et type de nourriture</h1>
+    div(class="container mt-5")
+        form(action='/restaurant-by-road', method='POST')
+            div(class="container-select")
+                select(class="select" name="borough")
+                    if boroughList != null
+                        each borough in boroughList
+                            option(value=borough) #{borough}
+
+                select(class="select" name="cuisine")
+                    if cuisineList != null
+                        each cuisine in cuisineList
+                            option(value=cuisine) #{cuisine}
+            <button class="btn btn-primary" type='submit' value='Submit'>Chercher</button>
+        if error 
+            h2 Aucun élément trouvé
+        if restaurants != null
+            div(class="container mt-5 container-card")
+                each restaurant in restaurants
+                    div(class="card" style="width: 18rem;")
+                        div(class="card-body")
+                            h5( class="card-title") #{restaurant.name}
+                            p( class="card-text") Adresse du restaurant : #{restaurant.address.street}
+                            p( class="card-text") Type de cuisine : #{restaurant.cuisine}
+                            <a href="#" class="btn btn-primary">Y aller</a>
+            
+        

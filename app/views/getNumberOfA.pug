@@ -1,0 +1,22 @@
+extends layout.pug
+
+block content
+  <h1>Voir le nombre de A</h1>
+    div(class="container mt-5")
+        form(action='/number-of-A', method='POST')
+            h3(for="exampleFormControlFile1 mt-5") Nom
+            input(type='text', name='name', class="form-control", required )
+            <button class="btn btn-primary" type='submit' value='Submit'>Chercher</button>
+    if error 
+        h2 Aucun élément trouvé
+    //- if restaurants != null
+    //-   div(class="container mt-5 container-card")
+    //-     each restaurant in restaurants
+    //-         div(class="card" style="width: 18rem;")
+    //-           div(class="card-body")
+    //-             h5( class="card-title") #{restaurant.name}
+    //-             p( class="card-text") Adresse du restaurant : #{restaurant.address.street}
+    //-             p( class="card-text") Type de cuisine : #{restaurant.cuisine}
+    //-             <a href="#" class="btn btn-primary">Y aller</a>
+
+  

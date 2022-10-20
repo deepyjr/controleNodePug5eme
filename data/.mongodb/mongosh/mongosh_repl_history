@@ -1,0 +1,33 @@
+db.restaurants.findOne()
+db.restaurants
+db
+show dbs
+help
+use ny
+dbs
+print
+help
+cd
+show
+help
+mongoimport -u root -p example --authenticationDatabase=admin --db ny --collection restaurants --file primer-dataset.json --drop
+db.restaurants.findOne()
+use admin
+db.restaurants.findOne()
+dbs
+a
+let a = 1;
+dbs
+show databases
+db.restaurants.findOne()
+mons
+mongo
+db.restaurants.findOne()
+use ny
+show databases
+dbs
+exit
+dbs
+db
+a
+let a = 1;

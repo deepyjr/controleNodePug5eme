@@ -1,0 +1,27 @@
+extends layout.pug
+
+block content
+  <h1>Chercher les meilleurs restaurants par quartier</h1>
+    div(class="container mt-5")
+        form(action='/best-restaurant-by-borough', method='POST')
+            div(class="container-select")
+                select(class="select" name="borough")
+                    if boroughList != null
+                        each borough in boroughList
+                            option(value=borough) #{borough}
+            <button class="btn btn-primary" type='submit' value='Submit'>Chercher</button>
+        if error 
+            h2 Aucun élément trouvé
+        if restaurants != null
+            div(class="container mt-5 container-card")
+                each restaurant in restaurants
+                    div(class="card" style="width: 18rem;")
+                        div(class="card-body")
+                            h4( class="card-title") #{restaurant._id.name}
+                            p( class="card-text") Adresse du restaurant : #{restaurant._id.address.street}
+                            p( class="card-text") Type de cuisine : #{restaurant._id.cuisine}
+                            p( class="card-text") Note du restaurant : #{restaurant._id.firstScore}
+                            p( class="card-text") Evaluation du restaurant : #{restaurant._id.firstGrades} 
+                            <a href="#" class="btn btn-primary">Y aller</a>
+            
+        
